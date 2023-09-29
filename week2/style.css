@@ -163,6 +163,7 @@ main h3 {
 
 .cta-button:hover {
     background-color: #000119;
+    box-shadow: 0px 5px 5px #333333;
 }
 
 /* Footer Styles */
