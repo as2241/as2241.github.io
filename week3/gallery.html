@@ -40,16 +40,53 @@
   <main class="services">
       <h1>Gallery</h1>
 
-		<div class="gallery-container">
-			<img src="images/1.jpeg" alt="Spa Image 1">
-			<img src="images/2.jpeg" alt="Spa Image 2">
-			<img src="images/3.jpeg" alt="Spa Image 3">
-			<img src="images/4.jpeg" alt="Spa Image 4">
-			<img src="images/5.jpeg" alt="Spa Image 5">
-			<img src="images/6.jpeg" alt="Spa Image 6">
-			<img src="images/7.jpeg" alt="Spa Image 7">
-			<img src="images/8.jpeg" alt="Spa Image 7">
-		</div>
+    <div class="container">
+
+      <div class ="mySlides">
+        <div class="numbertext">1 / 8 </div>
+          <img src="images/1.jpg" style="width:100%">
+      </div>
+
+      <div class ="mySlides">
+        <div class="numbertext">2 / 8 </div>
+          <img src="images/2.png" style="width:100%">
+      </div>
+      
+      <div class ="mySlides">
+        <div class="numbertext">3 / 8 </div>
+          <img src="images/3.jpg" style="width:100%">
+      </div>
+
+      <div class ="mySlides">
+        <div class="numbertext">4 / 8 </div>
+          <img src="images/4.jpg" style="width:100%">
+      </div>
+
+      <div class ="mySlides">
+        <div class="numbertext">5 / 8 </div>
+          <img src="images/5.jpg" style="width:100%">
+      </div>
+
+      <div class ="mySlides">
+        <div class="numbertext">6 / 8 </div>
+          <img src="images/6.jpg" style="width:100%">
+      </div>
+
+      <div class ="mySlides">
+        <div class="numbertext">7 / 8 </div>
+          <img src="images/7.jpg" style="width:100%">
+      </div>
+
+      <div class ="mySlides">
+        <div class="numbertext">8 / 8 </div>
+          <img src="images/8.png" style="width:100%">
+      </div>
+
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+
+
    <!-- Call to Action -->
    <section class="cta-container">
     <h2>Ready to Experience Our Services?</h2>
@@ -67,5 +104,46 @@
     <p >&copy; 2024 Wanderlust Voyages | Travel Agency. All rights reserved.</p>
   </footer>
  </div>
+ <script>
+  let slideIndex = 1;
+  showSlides(slideIndex);
+
+  // Next/previous controls
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+
+  // Thumbnail image controls
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+
+  function showSlides(n) {
+    let i;
+    // Get all the elements with class="mySlides" and "demo" as well as the caption text.
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("demo");
+    let captionText = document.getElementById("caption");
+
+    // Loop back to the first past the last slide.
+    if (n > slides.length) {slideIndex = 1}
+
+    // Loop back to the last slide if having navigated before the first slide.
+    if (n < 1) {slideIndex = slides.length}
+
+    // Hide all the slides initially.
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+
+    // Remove the "active" class from all the dots.
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+    captionText.innerHTML = dots[slideIndex-1].alt;
+  }
+ </script>
 </body>
 </html>
