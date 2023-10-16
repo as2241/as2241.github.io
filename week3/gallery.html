@@ -4,21 +4,6 @@
   <meta charset="UTF-8">
   <title>Gallery - Wanderlust Voyages</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-   .gallery-container {
-	margin: 0 auto;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	margin-top: 40px;
-  }
-
-   .gallery-container img {
-	width: 24%;
-	margin-bottom: 20px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  }
-  </style>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -120,9 +105,8 @@
 
   function showSlides(n) {
     let i;
-    // Get all the elements with class="mySlides" and "demo" as well as the caption text.
+    // Get all the elements with class="mySlides" and the caption text.
     let slides = document.getElementsByClassName("mySlides");
-    let dots = document.getElementsByClassName("demo");
     let captionText = document.getElementById("caption");
 
     // Loop back to the first past the last slide.
@@ -136,13 +120,7 @@
       slides[i].style.display = "none";
     }
 
-    // Remove the "active" class from all the dots.
-    for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-    }
     slides[slideIndex-1].style.display = "block";
-    dots[slideIndex-1].className += " active";
-    captionText.innerHTML = dots[slideIndex-1].alt;
   }
  </script>
 </body>
