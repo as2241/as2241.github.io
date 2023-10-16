@@ -115,6 +115,7 @@ document
   .getElementById("submitBtn")
   .addEventListener("click", function (event) {
     if (validateForm()) {
+      event.preventDefault();
       alert("Form submitted successfully!");
     }
   });
