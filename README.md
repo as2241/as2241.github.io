@@ -1,6 +1,6 @@
-<p align="center">
-# [as2241.github.io](as2241.github.io)
-</p>
+<h1 align="center">
+  <a href="https://as2241.github.io/">as2241.github.io</a>
+</h1>
 
 # Course: Web Programming (F28WP)
 
