@@ -2,7 +2,7 @@
   <a href="https://as2241.github.io/">as2241.github.io</a>
 </h1>
 
-# Course: Web Programming (F28WP)
+## Course: Web Programming (F28WP)
 
 **[Lab 3](https://github.com/as2241/as2241.github.io/tree/main/week3): Gallery slideshow and Form validation.**
 
