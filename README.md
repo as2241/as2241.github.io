@@ -8,5 +8,5 @@
 
 This lab is aimed at creating a Gallery slideshow and Form validation using HTML, CSS and Javascript.
 
-[Gallery slideshow](https://as2241.github.io/week3/gallery.html)
+[Gallery slideshow](https://as2241.github.io/week3/gallery.html) <br />
 [Form validation](https://as2241.github.io/week3/form.html)
