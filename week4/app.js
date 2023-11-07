@@ -2,13 +2,13 @@
 const apiKey = "f153095090ee8f94607ab26d50c75dd6";
 
 const cityInput = document.getElementById("cityInput"); // Input field for entering a city.
-var weatherContainer = document.getElementById("weather-info"); // To display weather info.
-var btn = document.getElementById("btn"); // Button to activate search for the given city.
+const weatherContainer = document.getElementById("weather-info"); // To display weather info.
+const btn = document.getElementById("btn"); // Button to activate search for the given city.
 
 // Adding our button as an event listener to keep listening for user events.
 btn.addEventListener("click", function () {
   // Get the city value from the input field inside an event listener.
-  var city = cityInput.value;
+  const city = cityInput.value;
 
   // If city is empty alert the user.
   if (city === "") {
@@ -34,7 +34,7 @@ btn.addEventListener("click", function () {
       console.error(`HTTP Error Status Code: ${ourRequest.status}`);
     } else {
       // Once response is received and validated parse the JSON response and store it in 'data' variable to be further manipulated.
-      var data = JSON.parse(ourRequest.responseText);
+      const data = JSON.parse(ourRequest.responseText);
       renderHTML(data);
     }
   };
@@ -45,13 +45,13 @@ btn.addEventListener("click", function () {
 
 // Function to handle the dynamic rendering of HTML.
 function renderHTML(data) {
-  var weatherDescription = data.weather[0].description;
-  var cityMainTemp = data.main.temp;
-  var windSpeed = data.wind.speed;
-  var city = data.name;
+  const weatherDescription = data.weather[0].description;
+  const cityMainTemp = data.main.temp;
+  const windSpeed = data.wind.speed;
+  const cityName = data.name;
 
   // Append the variables to HTML paragraph tags and assign to 'htmlString'.
-  var htmlString = `<p>The weather in ${city} is ${weatherDescription}</p>
+  const htmlString = `<p>The weather in ${cityName} is ${weatherDescription}</p>
                       <p>The temperature is ${cityMainTemp}°C with a wind speed of  ${windSpeed}m/s.</p>`;
 
   // Parse htmlString variable to be displayed inside weather-info division.
