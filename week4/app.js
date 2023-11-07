@@ -48,11 +48,11 @@ function renderHTML(data) {
   var weatherDescription = data.weather[0].description;
   var cityMainTemp = data.main.temp;
   var windSpeed = data.wind.speed;
+  var city = data.name;
 
   // Append the variables to HTML paragraph tags and assign to 'htmlString'.
-  var htmlString = `<p>Weather Description: ${weatherDescription}</p>
-                      <p>Main Temperature: ${cityMainTemp} °C</p>
-                      <p>Wind Speed: ${windSpeed} m/s</p>`;
+  var htmlString = `<p>The weather in ${city} is ${weatherDescription}</p>
+                      <p>The temperature is ${cityMainTemp}°C with a wind speed of  ${windSpeed}m/s.</p>`;
 
   // Parse htmlString variable to be displayed inside weather-info division.
   weatherContainer.insertAdjacentHTML("beforeend", htmlString);
