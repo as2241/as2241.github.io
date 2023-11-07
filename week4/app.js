@@ -8,47 +8,39 @@ var btn = document.getElementById("btn"); // Button to activate search for the g
 // Adding our button as an event listener to keep listening for user events.
 btn.addEventListener("click", function () {
   // Get the city value from the input field inside an event listener.
-  var cityInput = document.getElementById("cityInput").value;
+  var city = cityInput.value;
 
   // If city is empty alert the user.
-  if (cityInput === "") {
+  if (city === "") {
     alert("Please enter a city name");
     return;
   }
 
   // URL responsible for retrieving weather related data.
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&units=metric&appid=${apiKey}`;
+  const weatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
 
-  try {
-    // Create ourRequest constructor to be used for sending a HTTP GET request.
-    const ourRequest = new XMLHttpRequest();
-    ourRequest.open("GET", url);
+  // Create ourRequest constructor to be used for sending a HTTP GET request.
+  const ourRequest = new XMLHttpRequest();
+  ourRequest.open("GET", weatherApiUrl);
 
-    // When our response is received call the below function to run.
-    ourRequest.onload = function () {
-    
-      // If our HTTP response status code is less than 200 or above 400 it indicates a HTTP status error.
-      if (ourRequest.status < 200 || ourRequest.status > 400) {
-        // Abruptly stop the flow of script and throw out an error indicating an error with HTTP.
-        throw new Error(`HTTP Error Status Code: ${ourRequest.status}`);
-      }
-
+  // When our response is received call the below function to run.
+  ourRequest.onload = function () {
+    // If our HTTP response status code is less than 200 or above 400 it indicates an HTTP status error.
+    if (ourRequest.status < 200 || ourRequest.status >= 400) {
+      // Display briefly something went wrong in weather-info division.
+      weatherContainer.innerHTML =
+        "Failed to fetch weather information. Please check console to debug further.";
+      // Display in console the error message.
+      console.error(`HTTP Error Status Code: ${ourRequest.status}`);
+    } else {
       // Once response is received and validated parse the JSON response and store it in 'data' variable to be further manipulated.
       var data = JSON.parse(ourRequest.responseText);
       renderHTML(data);
-    };
+    }
+  };
 
-    // Where the HTTP GET request is sent.
-    ourRequest.send();
-
-    // In-case of API or Network related errors, catch it.
-  } catch (error) {
-    // Display in console the error message.
-    console.error("Error occured when fetching data: ",error);
-    // Display briefly in weather-info division.
-    weatherContainer.innerHTML =
-      "Failed to fetch weather information. Please check console to debug further.";
-  }
+  // Where the HTTP GET request is sent.
+  ourRequest.send();
 });
 
 // Function to handle the dynamic rendering of HTML.
