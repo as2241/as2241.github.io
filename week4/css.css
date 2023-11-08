@@ -46,4 +46,6 @@ button {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin: 20px 0;
+    border-bottom: 1px solid black;
+    padding-bottom: 20px;
 }
