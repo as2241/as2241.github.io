@@ -4,7 +4,7 @@ btn.addEventListener("click", function () {
   var ourRequest = new XMLHttpRequest();
   ourRequest.open(
     "GET",
-    "https://as2241.github.io/week4/cities1.json"
+    "https://as2241.github.io/week4-prac/cities1.json"
   );
   ourRequest.onload = function () {
     var ourData = JSON.parse(ourRequest.responseText);
