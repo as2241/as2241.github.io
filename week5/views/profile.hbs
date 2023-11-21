@@ -44,6 +44,31 @@ T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="a
                             the information about yourself.</p>
                         <a href="#" class="btn btn-primary">Go Somewhere</a>
                     </div>
+                    <h2>{{user.name}}'s Profile</h2>
+                    <div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Attribute</th>
+                                    <th scope="col">Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">ID</th>
+                                    <td>{{user.id}}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Name</th>
+                                    <td>{{user.name}}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Email</th>
+                                    <td>{{user.email}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                     <div class="card-footer text-muted">
                         Node MySQL - Project
                     </div>

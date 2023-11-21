@@ -28,7 +28,7 @@ exports.login = async (req, res) => {
             message: "Please enter your Email and Password.",
           });
         } else {
-          if (!(await bcrypt.compare(password, results[0].password))) {
+          if ( !results || !(await bcrypt.compare(password, results[0].password))) {
             return res.status(401).render("login", {
               message: "Incorrect Email or Password.",
             });
@@ -37,7 +37,7 @@ exports.login = async (req, res) => {
             const token = jwt.sign({ id: id }, process.env.JWT_SECRET, {
               expiresIn: process.env.JWT_EXPIRES_IN,
             });
-            console.log("The Token is " + token);
+            console.log("The token is " + token);
             const cookieOptions = {
               expires: new Date(
                 Date.now() +
